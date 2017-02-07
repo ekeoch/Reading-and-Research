@@ -31,25 +31,23 @@ shinyUI(fluidPage(
   HTML("
     <div id='header'><h2>Reading and Research: Central Data Pooling and Processing Service.</h2></div>
   "),
-  #h2("Reading and Research: Central Data Pooling and Processing Service."),
+
   br(),
   br(),
   sidebarLayout(
     sidebarPanel(
       strong("Data Input:"),
+      
       br(),
       br(),
       numericInput("circumference", label = "Circumference (m): ", value = 0.0),
       br(),
       numericInput("diameter", label = "Diameter (m): ", value = 0.0),
       submitButton("upload"),
+      
       br(),
       br(),
-      
-      
       fileInput("input_file", label = "File Upload:")
-      
-      
     ),
     
     mainPanel(
