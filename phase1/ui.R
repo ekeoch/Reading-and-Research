@@ -12,12 +12,26 @@ shinyUI(fluidPage(
           background-color: #efefef;
           text-align: center;
         }
+
+        h2 {
+          text-align: center;
+        }
+
+        #header {
+          right: 0;
+          top: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #efefef;
+        }
       "
       )
     )
   ),
-  
-  titlePanel("Reading and Research: Central Data Pooling and Processing Service."),
+  HTML("
+    <div id='header'><h2>Reading and Research: Central Data Pooling and Processing Service.</h2></div>
+  "),
+  #h2("Reading and Research: Central Data Pooling and Processing Service."),
   br(),
   br(),
   sidebarLayout(
