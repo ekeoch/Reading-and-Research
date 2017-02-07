@@ -3,7 +3,15 @@ shinyUI(fluidPage(
   tags$head(
     tags$style(
       HTML("
-          
+        .footer {
+          postion: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          padding: 1rem;
+          background-color: #efefef;
+          text-align: center;
+        }
       "
       )
     )
@@ -31,7 +39,14 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-
+      plotOutput("plot", width = "100%", height = "500px"),
+      #abline(),
+      sliderInput("maxCircumference", "Max Circumference", min = 0, max = 3, value = 1),
+      sliderInput("maxDiameter", "Max Diameter", min = 0, max = 3, value = .5)
     )
+  ),
+  HTML("
+      <div class='footer'>This footer will always be positioned at the bottom , but not fixed.</div>
+    "
   )
 ))
