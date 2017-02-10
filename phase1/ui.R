@@ -4,7 +4,6 @@ shinyUI(fluidPage(
     tags$style(
       HTML("
         .footer {
-          postion: absolute;
           right: 0;
           bottom: 0;
           left: 0;
@@ -43,7 +42,7 @@ shinyUI(fluidPage(
       numericInput("circumference", label = "Circumference (m): ", value = 0.0),
       br(),
       numericInput("diameter", label = "Diameter (m): ", value = 0.0),
-      submitButton("upload"),
+      actionButton("upload", "Upload"),
       
       br(),
       br(),
@@ -51,10 +50,23 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      plotOutput("plot", width = "100%", height = "500px"),
-      #abline(),
-      sliderInput("maxCircumference", "Max Circumference", min = 0, max = 3, value = 1),
-      sliderInput("maxDiameter", "Max Diameter", min = 0, max = 3, value = .5)
+      tabsetPanel(
+        tabPanel("Plot", 
+          plotOutput("plot", width = "100%", height = "500px"),
+        fluidRow(
+          column(6, sliderInput("maxCircumference", "Max Circumference", min = 0, max = 120, value = 60)),
+          column(6, sliderInput("maxDiameter", "Max Diameter", min = 0, max = 25, value = 20))
+        )),
+        
+        tabPanel("Summary", tableOutput("summary"))
+      ),
+      br(),
+      fluidRow(
+        column(12, align="center",
+               actionButton("refresh", "Refresh") 
+        )
+      ),
+      br()
     )
   ),
   HTML("
