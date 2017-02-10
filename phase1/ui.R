@@ -46,7 +46,7 @@ shinyUI(fluidPage(
       
       br(),
       br(),
-      fileInput("input_file", label = "File Upload:")
+      fileInput("input_file", label = "File Upload:", accept = ".csv")
     ),
     
     mainPanel(
@@ -57,8 +57,9 @@ shinyUI(fluidPage(
           column(6, sliderInput("maxCircumference", "Max Circumference", min = 1, max = 50, value = 35)),
           column(6, sliderInput("maxDiameter", "Max Diameter", min = 1, max = 10, value = 8))
         )),
-        
-        tabPanel("Summary", tableOutput("summary"))
+        tabPanel("Summary",
+                 br(),
+                 tableOutput("summary"))
       ),
       br(),
       fluidRow(
