@@ -54,8 +54,8 @@ shinyUI(fluidPage(
         tabPanel("Plot", 
           plotOutput("plot", width = "100%", height = "500px"),
         fluidRow(
-          column(6, sliderInput("maxCircumference", "Max Circumference", min = 0, max = 120, value = 60)),
-          column(6, sliderInput("maxDiameter", "Max Diameter", min = 0, max = 25, value = 20))
+          column(6, sliderInput("maxCircumference", "Max Circumference", min = 1, max = 50, value = 35)),
+          column(6, sliderInput("maxDiameter", "Max Diameter", min = 1, max = 10, value = 8))
         )),
         
         tabPanel("Summary", tableOutput("summary"))
