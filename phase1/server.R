@@ -3,8 +3,28 @@ source("dbHelper.R")
 
 shinyServer(function(input, output){
   
+  
+  observeEvent(input$input_file, {
+    if(is.null(input$input_file)) return(NULL)
+    infile <- input$input_file
+    dbData <- read.csv(infile$datapath, header = FALSE)
+    names(dbData) <- c("circumference", "diameter")
+    saveData(dbData)
+  })
+  
+  
+  
+  
+  #observeEvent(input$upload,{
+    
+  #})
+  
+  dbData <- loadData()
+  
+  
+  
   output$plot <- renderPlot({
-    dbData <- loadData()
+    
     z <- lm(circumference ~ diameter , data = dbData)
     plot(dbData$diameter, dbData$circumference,
          xlab = "Diameter (cm)", ylab = "Circumference (cm)", 

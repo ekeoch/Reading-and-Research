@@ -71,7 +71,7 @@ shinyUI(fluidPage(
     )
   ),
   HTML("
-      <div class='footer'>This footer will always be positioned at the bottom , but not fixed.</div>
+      <div class='footer'>Reading and Research project, Howard University 2017. Advisor: Dr Charles Kim.</div>
     "
   )
 ))
